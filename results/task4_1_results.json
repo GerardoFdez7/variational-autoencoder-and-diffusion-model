@@ -1,0 +1,50 @@
+{
+  "seed": 42,
+  "equipo": {
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "hilos_cpu": 24
+  },
+  "vae_vs_task1": {
+    "recon_final": 21.16986083984375,
+    "kl_final": 5.297548294067383,
+    "recon_task1": 21.411449432373047,
+    "kl_task1": 5.148222923278809,
+    "error_rel_recon": -0.011283149853649185,
+    "error_rel_kl": 0.02900522627203401
+  },
+  "nitidez": {
+    "n_imagenes": 500,
+    "rango_pixeles": "[0, 1]",
+    "definicion": "media de |x[:, :, :, 1:] - x[:, :, :, :-1]| (igual que Task 1.4)",
+    "reales": "primeras 500 de validacion",
+    "real": 0.08857910335063934,
+    "vae_beta1": 0.048785172402858734,
+    "difusion_w1": 0.08467140048742294
+  },
+  "tiempo_100_imagenes": {
+    "evaluaciones_red": {
+      "vae": 100,
+      "difusion_w1": 100000
+    },
+    "repeticiones": {
+      "vae": 20,
+      "difusion": 3,
+      "estadistico": "mediana"
+    },
+    "cpu": {
+      "vae_segundos_100": 0.0003283710011601215,
+      "difusion_segundos_100": 45.5765396229981,
+      "razon_difusion_sobre_vae": 138795.87254044364
+    },
+    "cuda": {
+      "vae_segundos_100": 0.00013710499843000434,
+      "difusion_segundos_100": 4.242094452998572,
+      "razon_difusion_sobre_vae": 30940.479935633208
+    }
+  },
+  "archivos": {
+    "vae_checkpoint": "results/checkpoints/vae_beta1.pt",
+    "vae_muestras": "results/samples/task4_1_vae_beta1.pt",
+    "difusion_muestras": "results/samples/task3_4_w1.pt"
+  }
+}
