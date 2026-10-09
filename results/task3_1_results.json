@@ -1,0 +1,33 @@
+{
+  "seed": 42,
+  "emb_dim": 128,
+  "parametros_totales": 363265,
+  "parametros_por_modulo": {
+    "time_mlp": 33024,
+    "class_emb": 1408,
+    "enc1": 13824,
+    "down": 9248,
+    "enc2": 63936,
+    "bottleneck": 82368,
+    "dec2": 119232,
+    "up": 8224,
+    "dec1": 31968,
+    "out": 33
+  },
+  "forma_entrada": [
+    4,
+    1,
+    28,
+    28
+  ],
+  "forma_salida": [
+    4,
+    1,
+    28,
+    28
+  ],
+  "forma_embedding_sinusoidal": [
+    4,
+    128
+  ]
+}
