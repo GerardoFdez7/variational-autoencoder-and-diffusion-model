@@ -1,0 +1,69 @@
+{
+  "seed": 42,
+  "dispositivo": "cuda",
+  "T": 1000,
+  "sampler": "DDPM ancestral, sigma_t^2 = beta_t",
+  "guia": "eps_w = eps_nulo + w (eps_cond - eps_nulo)",
+  "task3_3": {
+    "n_por_clase": 10,
+    "segundos": 4.830383192002046,
+    "figura": "results/figures/task3_3_grid_w1.png"
+  },
+  "task3_4": {
+    "ws": [
+      1,
+      3,
+      7
+    ],
+    "n_por_clase": 50,
+    "muestras": {
+      "1": {
+        "archivo": "results/samples/task3_4_w1.pt",
+        "n_imagenes": 500,
+        "segundos": 26.76006388499809,
+        "frac_pixeles_saturados": 0.39862754940986633,
+        "frac_pixeles_blancos": 0.010147958993911743,
+        "media_pixel": -0.4102643132209778,
+        "dispersion_intraclase": 0.35953015089035034
+      },
+      "3": {
+        "archivo": "results/samples/task3_4_w3.pt",
+        "n_imagenes": 500,
+        "segundos": 63.24412218999714,
+        "frac_pixeles_saturados": 0.42595916986465454,
+        "frac_pixeles_blancos": 0.10186734795570374,
+        "media_pixel": -0.20611360669136047,
+        "dispersion_intraclase": 0.3048153519630432
+      },
+      "7": {
+        "archivo": "results/samples/task3_4_w7.pt",
+        "n_imagenes": 500,
+        "segundos": 62.94963681700028,
+        "frac_pixeles_saturados": 0.6644183397293091,
+        "frac_pixeles_blancos": 0.31590816378593445,
+        "media_pixel": -0.04322226718068123,
+        "dispersion_intraclase": 0.26949626207351685
+      }
+    },
+    "tiempo_por_100_imagenes": {
+      "1": {
+        "segundos_100_imagenes": 4.830383192002046,
+        "evaluaciones_red_100_imagenes": 100000
+      },
+      "3": {
+        "segundos_100_imagenes": 9.736961529997643,
+        "evaluaciones_red_100_imagenes": 200000
+      },
+      "7": {
+        "segundos_100_imagenes": 9.75250472100015,
+        "evaluaciones_red_100_imagenes": 200000
+      }
+    },
+    "estadisticas_imagenes_reales": {
+      "frac_pixeles_saturados": 0.5196607112884521,
+      "frac_pixeles_blancos": 0.008977040648460388,
+      "media_pixel": -0.42330047488212585,
+      "dispersion_intraclase": 0.39010441303253174
+    }
+  }
+}
