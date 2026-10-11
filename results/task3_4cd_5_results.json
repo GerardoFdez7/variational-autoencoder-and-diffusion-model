@@ -1,0 +1,665 @@
+{
+  "seed": 42,
+  "clasificador": {
+    "arquitectura": "Conv(1->32,3x3)-ReLU-MaxPool, Conv(32->64,3x3)-ReLU-MaxPool, Linear(3136->128)-ReLU-Dropout(0.3), Linear(128->10)",
+    "entrada": "imagenes reales en [-1, 1] (misma escala que las muestras)",
+    "epochs": 5,
+    "batch_size": 128,
+    "lr": 0.001,
+    "optimizador": "Adam",
+    "historial": {
+      "loss_entrenamiento": [
+        0.5686323778672652,
+        0.3624169920011,
+        0.30944277053312824,
+        0.2830733684799888,
+        0.2571564036586068
+      ],
+      "exactitud_validacion": [
+        0.864799976348877,
+        0.8787999749183655,
+        0.9038000106811523,
+        0.9092000126838684,
+        0.9083999991416931
+      ]
+    },
+    "exactitud_validacion": 0.9083999991416931,
+    "checkpoint": "results\\checkpoints\\clasificador.pt"
+  },
+  "definiciones": {
+    "fidelidad": "fraccion de muestras cuya clase predicha coincide con la pedida",
+    "diversidad": "media de ||x_i - x_j||_2 sobre los 1225 pares de cada clase (pixeles en [-1, 1]), promediada sobre las 10 clases"
+  },
+  "tabla_3_4d": {
+    "dispositivo_tiempos": "cuda",
+    "filas": [
+      {
+        "w": 1,
+        "fidelidad": 0.8360000252723694,
+        "diversidad": 16.28514141397115,
+        "segundos_100_imagenes": 4.830383192002046,
+        "evaluaciones_red_100_imagenes": 100000
+      },
+      {
+        "w": 3,
+        "fidelidad": 0.9599999785423279,
+        "diversidad": 15.295201546025186,
+        "segundos_100_imagenes": 9.736961529997643,
+        "evaluaciones_red_100_imagenes": 200000
+      },
+      {
+        "w": 7,
+        "fidelidad": 0.9679999947547913,
+        "diversidad": 14.614914601159015,
+        "segundos_100_imagenes": 9.75250472100015,
+        "evaluaciones_red_100_imagenes": 200000
+      }
+    ],
+    "referencia_real": {
+      "fidelidad": 0.9020000100135803,
+      "diversidad": 17.675182358776198,
+      "imagenes": "primeras 50 por clase de validacion"
+    }
+  },
+  "por_w": {
+    "1": {
+      "fidelidad": 0.8360000252723694,
+      "diversidad": 16.28514141397115,
+      "segundos_100_imagenes": 4.830383192002046,
+      "evaluaciones_red_100_imagenes": 100000,
+      "fidelidad_por_clase": {
+        "T-shirt/top": 0.6600000262260437,
+        "Trouser": 0.9200000166893005,
+        "Pullover": 0.8799999952316284,
+        "Dress": 0.9399999976158142,
+        "Coat": 0.5400000214576721,
+        "Sandal": 0.8999999761581421,
+        "Shirt": 0.6399999856948853,
+        "Sneaker": 0.9399999976158142,
+        "Bag": 0.9599999785423279,
+        "Ankle boot": 0.9800000190734863
+      },
+      "diversidad_por_clase": {
+        "T-shirt/top": 17.676604393302394,
+        "Trouser": 12.816403667011366,
+        "Pullover": 16.29017506244132,
+        "Dress": 14.882251100876411,
+        "Coat": 17.07478569802563,
+        "Sandal": 16.009319178333342,
+        "Shirt": 18.152358929052685,
+        "Sneaker": 13.766132453348183,
+        "Bag": 18.62602689881832,
+        "Ankle boot": 17.557356758501847
+      },
+      "prob_media_clase_pedida": {
+        "T-shirt/top": 0.5901905298233032,
+        "Trouser": 0.9018024206161499,
+        "Pullover": 0.7246392965316772,
+        "Dress": 0.8740950226783752,
+        "Coat": 0.48414745926856995,
+        "Sandal": 0.8181052207946777,
+        "Shirt": 0.4713464081287384,
+        "Sneaker": 0.8739487528800964,
+        "Bag": 0.9420461058616638,
+        "Ankle boot": 0.9672748446464539
+      },
+      "frac_pixeles_blancos_por_clase": {
+        "T-shirt/top": 0.024132652208209038,
+        "Trouser": 0.010663265362381935,
+        "Pullover": 0.013775509782135487,
+        "Dress": 0.0076530613005161285,
+        "Coat": 0.008061224594712257,
+        "Sandal": 0.0014285714132711291,
+        "Shirt": 0.02428571507334709,
+        "Sneaker": 0.003724489826709032,
+        "Bag": 0.0033928570337593555,
+        "Ankle boot": 0.004362245090305805
+      },
+      "intensidad_media_por_clase": {
+        "T-shirt/top": -0.23517850041389465,
+        "Trouser": -0.5023371577262878,
+        "Pullover": -0.2990947365760803,
+        "Dress": -0.5074662566184998,
+        "Coat": -0.35983726382255554,
+        "Sandal": -0.6831100583076477,
+        "Shirt": -0.20504802465438843,
+        "Sneaker": -0.6457439064979553,
+        "Bag": -0.26520729064941406,
+        "Ankle boot": -0.39962002635002136
+      }
+    },
+    "3": {
+      "fidelidad": 0.9599999785423279,
+      "diversidad": 15.295201546025186,
+      "segundos_100_imagenes": 9.736961529997643,
+      "evaluaciones_red_100_imagenes": 200000,
+      "fidelidad_por_clase": {
+        "T-shirt/top": 0.9399999976158142,
+        "Trouser": 1.0,
+        "Pullover": 1.0,
+        "Dress": 1.0,
+        "Coat": 0.9399999976158142,
+        "Sandal": 1.0,
+        "Shirt": 0.7200000286102295,
+        "Sneaker": 1.0,
+        "Bag": 1.0,
+        "Ankle boot": 1.0
+      },
+      "diversidad_por_clase": {
+        "T-shirt/top": 12.824951527549455,
+        "Trouser": 10.960587119007643,
+        "Pullover": 15.67943161475541,
+        "Dress": 14.10576430499041,
+        "Coat": 15.207578242425575,
+        "Sandal": 20.55400837599928,
+        "Shirt": 19.477570906930286,
+        "Sneaker": 11.036740822152339,
+        "Bag": 18.786209304020872,
+        "Ankle boot": 14.319173242420604
+      },
+      "prob_media_clase_pedida": {
+        "T-shirt/top": 0.8601802587509155,
+        "Trouser": 0.9999982714653015,
+        "Pullover": 0.9450703263282776,
+        "Dress": 0.9976319670677185,
+        "Coat": 0.8375802040100098,
+        "Sandal": 0.9994564652442932,
+        "Shirt": 0.5420268177986145,
+        "Sneaker": 0.9967070817947388,
+        "Bag": 0.9990817904472351,
+        "Ankle boot": 0.9999849200248718
+      },
+      "frac_pixeles_blancos_por_clase": {
+        "T-shirt/top": 0.3587754964828491,
+        "Trouser": 0.10681122541427612,
+        "Pullover": 0.05089285597205162,
+        "Dress": 0.03247448801994324,
+        "Coat": 0.0423724502325058,
+        "Sandal": 0.009464285336434841,
+        "Shirt": 0.3545408248901367,
+        "Sneaker": 0.008775509893894196,
+        "Bag": 0.028520409017801285,
+        "Ankle boot": 0.026045918464660645
+      },
+      "intensidad_media_por_clase": {
+        "T-shirt/top": 0.1545492261648178,
+        "Trouser": -0.425467848777771,
+        "Pullover": -0.09716834127902985,
+        "Dress": -0.4014952778816223,
+        "Coat": -0.20322778820991516,
+        "Sandal": -0.579289972782135,
+        "Shirt": 0.2860127389431,
+        "Sneaker": -0.6303530335426331,
+        "Bag": 0.09658638387918472,
+        "Ankle boot": -0.26128217577934265
+      }
+    },
+    "7": {
+      "fidelidad": 0.9679999947547913,
+      "diversidad": 14.614914601159015,
+      "segundos_100_imagenes": 9.75250472100015,
+      "evaluaciones_red_100_imagenes": 200000,
+      "fidelidad_por_clase": {
+        "T-shirt/top": 1.0,
+        "Trouser": 1.0,
+        "Pullover": 1.0,
+        "Dress": 1.0,
+        "Coat": 1.0,
+        "Sandal": 1.0,
+        "Shirt": 0.6800000071525574,
+        "Sneaker": 1.0,
+        "Bag": 1.0,
+        "Ankle boot": 1.0
+      },
+      "diversidad_por_clase": {
+        "T-shirt/top": 9.907722881210923,
+        "Trouser": 9.518594462505495,
+        "Pullover": 15.350048292643931,
+        "Dress": 13.207376568818555,
+        "Coat": 11.149302852168613,
+        "Sandal": 24.57985847250056,
+        "Shirt": 17.946289591340083,
+        "Sneaker": 10.447991300758563,
+        "Bag": 20.95789801214824,
+        "Ankle boot": 13.084063577495192
+      },
+      "prob_media_clase_pedida": {
+        "T-shirt/top": 0.9322970509529114,
+        "Trouser": 0.9996575713157654,
+        "Pullover": 0.957908034324646,
+        "Dress": 0.9998489618301392,
+        "Coat": 0.9406964778900146,
+        "Sandal": 0.9992448687553406,
+        "Shirt": 0.5183268189430237,
+        "Sneaker": 0.999366044998169,
+        "Bag": 0.9999525547027588,
+        "Ankle boot": 0.9999929666519165
+      },
+      "frac_pixeles_blancos_por_clase": {
+        "T-shirt/top": 0.6120663285255432,
+        "Trouser": 0.24604591727256775,
+        "Pullover": 0.13594387471675873,
+        "Dress": 0.12007652968168259,
+        "Coat": 0.14727041125297546,
+        "Sandal": 0.1236734688282013,
+        "Shirt": 0.7920918464660645,
+        "Sneaker": 0.05160714313387871,
+        "Bag": 0.5940816402435303,
+        "Ankle boot": 0.3362244963645935
+      },
+      "intensidad_media_por_clase": {
+        "T-shirt/top": 0.2865869998931885,
+        "Trouser": -0.38131648302078247,
+        "Pullover": -0.038021933287382126,
+        "Dress": -0.3756629228591919,
+        "Coat": -0.07074006646871567,
+        "Sandal": -0.37377211451530457,
+        "Shirt": 0.6261586546897888,
+        "Sneaker": -0.5903443694114685,
+        "Bag": 0.5125659108161926,
+        "Ankle boot": -0.027676336467266083
+      }
+    }
+  },
+  "diversidad_real_por_clase": {
+    "T-shirt/top": 18.741181168478786,
+    "Trouser": 14.470549232163918,
+    "Pullover": 18.55872982727367,
+    "Dress": 16.111693624472526,
+    "Coat": 16.895298218858127,
+    "Sandal": 18.916853514522504,
+    "Shirt": 19.99441953523949,
+    "Sneaker": 12.744409188387017,
+    "Bag": 22.64091374006395,
+    "Ankle boot": 17.67777553830198
+  },
+  "analisis_3_5a": {
+    "caida_abs_w1_a_w7": {
+      "T-shirt/top": 7.768881512091472,
+      "Trouser": 3.297809204505871,
+      "Pullover": 0.9401267697973896,
+      "Dress": 1.6748745320578564,
+      "Coat": 5.925482845857015,
+      "Sandal": -8.570539294167219,
+      "Shirt": 0.20606933771260216,
+      "Sneaker": 3.31814115258962,
+      "Bag": -2.331871113329921,
+      "Ankle boot": 4.473293181006655
+    },
+    "caida_rel_w1_a_w7": {
+      "T-shirt/top": 0.4395007852885521,
+      "Trouser": 0.2573115899114686,
+      "Pullover": 0.057711274814041064,
+      "Dress": 0.11254174658827142,
+      "Coat": 0.3470311692721381,
+      "Sandal": -0.5353468938120989,
+      "Shirt": 0.011352207088787236,
+      "Sneaker": 0.2410365557526352,
+      "Bag": -0.12519423095420637,
+      "Ankle boot": 0.2547816987793758
+    },
+    "clase_mayor_caida_abs": "T-shirt/top",
+    "clase_mayor_caida_rel": "T-shirt/top"
+  },
+  "analisis_3_5b": {
+    "filas": "clase pedida (generadas) o real (validacion)",
+    "columnas": "clase predicha",
+    "clases": [
+      "T-shirt/top",
+      "Trouser",
+      "Pullover",
+      "Dress",
+      "Coat",
+      "Sandal",
+      "Shirt",
+      "Sneaker",
+      "Bag",
+      "Ankle boot"
+    ],
+    "matriz_generadas_w1": [
+      [
+        33,
+        0,
+        4,
+        5,
+        0,
+        0,
+        8,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        46,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        44,
+        0,
+        5,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        47,
+        2,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        10,
+        0,
+        27,
+        0,
+        13,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        45,
+        0,
+        1,
+        2,
+        2
+      ],
+      [
+        1,
+        0,
+        11,
+        2,
+        3,
+        0,
+        32,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        47,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        48,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        49
+      ]
+    ],
+    "matriz_validacion_real": [
+      [
+        434,
+        0,
+        13,
+        20,
+        1,
+        0,
+        51,
+        0,
+        2,
+        0
+      ],
+      [
+        0,
+        483,
+        1,
+        11,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        3,
+        0,
+        442,
+        4,
+        23,
+        0,
+        16,
+        0,
+        2,
+        0
+      ],
+      [
+        4,
+        1,
+        2,
+        488,
+        6,
+        0,
+        7,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        38,
+        27,
+        441,
+        0,
+        20,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        486,
+        0,
+        12,
+        3,
+        2
+      ],
+      [
+        42,
+        1,
+        42,
+        23,
+        39,
+        0,
+        315,
+        0,
+        5,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        446,
+        0,
+        2
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        4,
+        508,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        22,
+        0,
+        499
+      ]
+    ],
+    "par_mas_confundido": [
+      "Coat",
+      "Shirt"
+    ],
+    "suma_tasas_par": 0.32,
+    "tasas_generadas": {
+      "Coat->Shirt": 0.25999999046325684,
+      "Shirt->Coat": 0.05999999865889549
+    },
+    "tasas_validacion_real": {
+      "Coat->Shirt": 0.03795066475868225,
+      "Shirt->Coat": 0.08351177722215652
+    }
+  },
+  "analisis_3_5d": [
+    {
+      "intervalo": "1-100",
+      "perdida_condicional": 0.21329832987882652,
+      "snr_inicio": 9999.0000000011,
+      "snr_fin": 8.710448569353932,
+      "pasos_snr_mayor_100": 27,
+      "pasos_snr_menor_0.01": 0
+    },
+    {
+      "intervalo": "101-200",
+      "perdida_condicional": 0.08321311583227041,
+      "snr_inicio": 8.53666957718994,
+      "snr_fin": 1.9328825223460275,
+      "pasos_snr_mayor_100": 0,
+      "pasos_snr_menor_0.01": 0
+    },
+    {
+      "intervalo": "201-300",
+      "perdida_condicional": 0.04736634446747449,
+      "snr_inicio": 1.909912080094787,
+      "snr_fin": 0.6567805452054616,
+      "pasos_snr_mayor_100": 0,
+      "pasos_snr_menor_0.01": 0
+    },
+    {
+      "intervalo": "301-400",
+      "perdida_condicional": 0.028140562220982143,
+      "snr_inicio": 0.6501953041845803,
+      "snr_fin": 0.24246205251251232,
+      "pasos_snr_mayor_100": 0,
+      "pasos_snr_menor_0.01": 0
+    },
+    {
+      "intervalo": "401-500",
+      "perdida_condicional": 0.015594517049984056,
+      "snr_inicio": 0.2400363231274124,
+      "snr_fin": 0.08528994446263685,
+      "pasos_snr_mayor_100": 0,
+      "pasos_snr_menor_0.01": 0
+    },
+    {
+      "intervalo": "501-600",
+      "perdida_condicional": 0.007567776676100127,
+      "snr_inicio": 0.0843595494103264,
+      "snr_fin": 0.026566925227066763,
+      "pasos_snr_mayor_100": 0,
+      "pasos_snr_menor_0.01": 0
+    },
+    {
+      "intervalo": "601-700",
+      "perdida_condicional": 0.0031875640869140627,
+      "snr_inicio": 0.026238340841995188,
+      "snr_fin": 0.007014977666504277,
+      "pasos_snr_mayor_100": 0,
+      "pasos_snr_menor_0.01": 26
+    },
+    {
+      "intervalo": "701-800",
+      "perdida_condicional": 0.00126766709308235,
+      "snr_inicio": 0.00691577838505717,
+      "snr_fin": 0.0015344404498256825,
+      "pasos_snr_mayor_100": 0,
+      "pasos_snr_menor_0.01": 100
+    },
+    {
+      "intervalo": "801-900",
+      "perdida_condicional": 0.0006968436104910715,
+      "snr_inicio": 0.001509797110722087,
+      "snr_fin": 0.0002752816710467091,
+      "pasos_snr_mayor_100": 0,
+      "pasos_snr_menor_0.01": 100
+    },
+    {
+      "intervalo": "901-1000",
+      "perdida_condicional": 0.000580232674734933,
+      "snr_inicio": 0.0002703175714004755,
+      "snr_fin": 4.03599265116842e-05,
+      "pasos_snr_mayor_100": 0,
+      "pasos_snr_menor_0.01": 100
+    }
+  ],
+  "figuras": [
+    "results/figures/task3_4d_clase_por_w.png",
+    "results/figures/task3_5a_diversidad_por_clase.png",
+    "results/figures/task3_5b_matriz_confusion.png",
+    "results/figures/task3_5b_par_confundido.png"
+  ]
+}

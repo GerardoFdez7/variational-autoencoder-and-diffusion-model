@@ -17,9 +17,13 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import common
 
 # (n, c) por problema, tomados del enunciado del laboratorio.
-# TODO: llenar con los valores de P1-P6 del enunciado.
 PROBLEMS = {
-    # "P1": (n, c),
+    "P1": (20, 0),
+    "P2": (20, 2),
+    "P3": (20, 5),
+    "P4": (20, 9),
+    "P5": (20, 14),
+    "P6": (20, 20),
 }
 KS = [1, 5, 10]
 K_DETALLE = 5          # k para el desarrollo de P2 y la comparacion de estimadores
